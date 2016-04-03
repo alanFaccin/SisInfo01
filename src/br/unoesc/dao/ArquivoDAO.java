@@ -23,5 +23,7 @@ public interface ArquivoDAO {
     List<GenericObject> getSalariosEscolaridade();
     
     List<GenericObject> getNfilhosValorGasto();
+    
+    String efetuaMinercao();
 
 }

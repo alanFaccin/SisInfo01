@@ -251,4 +251,17 @@ public class ArquivoDAOImpl implements ArquivoDAO {
 		return resultado;
 	}
 
+	@Override
+	public String efetuaMinercao() {
+		
+		for (Arquivo f : getlinhas()) {
+			// ajuste Salario
+			f.setSalario(f.getSalario()*1000.00f);
+			f.setValor(f.getValor()*10.00f);
+			update(f);
+		}
+		
+		return "Mineraçao Completa";
+	}
+
 }
