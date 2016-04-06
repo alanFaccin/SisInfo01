@@ -36,6 +36,16 @@ public class ChartData {
 		}
 		return pieDataList;
 	}
+	
+	public List<KeyValue> getDtVlr() {
+
+		ArquivoDAO fDao = new ArquivoDAOImpl();
+		List<KeyValue> pieDataList = new ArrayList<ChartData.KeyValue>();
+		for (GenericObject f : fDao.getDataValor()) {
+			pieDataList.add(new KeyValue(f.getKey(), String.valueOf(f.getValor())));
+		}
+		return pieDataList;
+	}
 
 
 	public static class KeyValue {

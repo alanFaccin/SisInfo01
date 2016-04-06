@@ -39,7 +39,7 @@
                     </c:forEach>
                     ]);*/        
         var data = google.visualization.arrayToDataTable([
-                                                              ['Country', 'Area(square km)'],
+                                                              ['Numero de filhos', 'Valor Gasto'],
                                                               <c:forEach items="${pieDataList}" var="entry">
                                                                   [ '${entry.key}', ${entry.value} ],
                                                               </c:forEach>
@@ -138,9 +138,9 @@
 
 		<div class="row">
 			<div class="col-lg-12">
-				<h1>Tralahos de Sistemas de Informações</h1>
-				<p>Na tabela abaixo podemos ver os dados provenientes do
-					Arquivo.</p>
+				<h1>Trabalho de Sistemas de Informação</h1>
+				<p>Abaixo vemos os gráficos gerados através dos dados
+					provenientes do Arquivo.</p>
 			</div>
 		</div>
 
@@ -160,17 +160,17 @@
 							<button type="submit" class="btn btn-primary">Num.
 								Filhos X Valor Gasto</button>
 						</form></a></li>
-				<li><a><form role="form" action="Servlet_index">
-							<button type="submit" class="btn btn-primary">
-								Escolaridade X Salário</button>
+				<li><a><form role="form" action="ChartSalEC">
+							<button type="submit" class="btn btn-primary">Estado
+								Civil X Salário</button>
 						</form></a></li>
-				<li><a><form role="form" action="Servlet_index">
-							<button type="submit" class="btn btn-primary">
-								Escolaridade X Salário</button>
+				<li><a><form role="form" action="ChartDataValor">
+							<button type="submit" class="btn btn-primary">Data X
+								Valor Gasto</button>
 						</form></a></li>
 			</ul>
 		</div>
-		
+
 		<!-- Impressão do Gráfico -->
 		<div style="width: 600px;">
 			<div id="chart_div"></div>
