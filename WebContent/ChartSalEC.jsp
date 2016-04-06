@@ -28,7 +28,7 @@
 
    
         var data = google.visualization.arrayToDataTable([
-                                                              ['Estado Civil', 'Valor Gasto'],
+                                                              ['Estado Civil', 'Salário'],
                                                               
                                                               <c:forEach items="${pieDataList}" var="entry">
                                                                   [ '${entry.key}', ${entry.value} ],
@@ -37,7 +37,7 @@
 
         // Set chart options
         var options = {
-            'title' : 'Relação Estado Civil X Valor Gasto', 
+            'title' : 'Relação Estado Civil X Salário', 
             is3D : true, //render Google Pie Chart as 3D
             pieSliceText: 'label', //on mouse hover show label or name of the Country
             tooltip :  {showColorCode: true}, // whether to display color code for a Country on mouse hover
@@ -128,9 +128,9 @@
 
 		<div class="row">
 			<div class="col-lg-12">
-				<h1>Trabalho de Sistemas de Informações</h1>
-				<p>Na tabela abaixo podemos ver os dados provenientes do
-					Arquivo.</p>
+				<h1>Trabalho de Sistemas de Informação</h1>
+				<p>Abaixo vemos os gráficos gerados através dos dados
+					provenientes do Arquivo.</p>
 			</div>
 		</div>
 

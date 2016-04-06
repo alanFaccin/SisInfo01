@@ -320,7 +320,7 @@ public class ArquivoDAOImpl implements ArquivoDAO {
 			transacao = sessao.beginTransaction();
 			Iterator obj = sessao
 					.createQuery(
-							"SELECT dtCompra,Valor FROM Arquivo")
+							"SELECT dtCompra,Valor FROM Arquivo order by dtCompra")
 					.list().iterator();
 
 			while (obj.hasNext()) {
