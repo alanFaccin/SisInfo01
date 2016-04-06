@@ -24,6 +24,8 @@ public interface ArquivoDAO {
     
     List<GenericObject> getNfilhosValorGasto();
     
+    List<GenericObject> getDataValor();
+    
     List<GenericObject> getSalariosEstadoCivil();
     
     String efetuaMinercao();

@@ -21,25 +21,15 @@
         'packages' : [ 'corechart' ]
     });
 
-    // Set a callback to run when the Google Visualization API is loaded.
     google.setOnLoadCallback(drawChart);
 
-    // Callback that creates and populates a data table,
-    // instantiates the pie chart, passes in the data and
-    // draws it.
+
     function drawChart() {
 
-        // Create the data table.
-        //var data = new google.visualization.DataTable();
-        //data.addColumn('string', 'Topping');
-        //data.addColumn('number', 'Slices');
-        /*data.addRows([
-                    <c:forEach items="${pieDataMap}" var="entry">
-                        [ '${entry.key}', ${entry.value} ],
-                    </c:forEach>
-                    ]);*/        
+   
         var data = google.visualization.arrayToDataTable([
-                                                              ['Numero de filhos', 'Valor Gasto'],
+                                                              ['Data', 'Valor'],
+                                                              
                                                               <c:forEach items="${pieDataList}" var="entry">
                                                                   [ '${entry.key}', ${entry.value} ],
                                                               </c:forEach>
@@ -47,7 +37,7 @@
 
         // Set chart options
         var options = {
-            'title' : 'Relação N filhos X Valor Gasto', //title which will be shown right above the Google Pie Chart
+            'title' : 'Relação Data Compra X Valor Gasto', 
             is3D : true, //render Google Pie Chart as 3D
             pieSliceText: 'label', //on mouse hover show label or name of the Country
             tooltip :  {showColorCode: true}, // whether to display color code for a Country on mouse hover
@@ -56,7 +46,7 @@
         };
 
         // Instantiate and draw our chart, passing in some options.
-        var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div')); //PieChart
         chart.draw(data, options);
     }
 </script>
@@ -164,9 +154,9 @@
 							<button type="submit" class="btn btn-primary">Estado
 								Civil X Salário</button>
 						</form></a></li>
-				<li><a><form role="form" action="ChartDataValor">
-							<button type="submit" class="btn btn-primary">Data X
-								Valor Gasto</button>
+				<li><a><form role="form" action=ChartDataValor>
+							<button type="submit" class="btn btn-primary">
+								Escolaridade X Salário</button>
 						</form></a></li>
 			</ul>
 		</div>
