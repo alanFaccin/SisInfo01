@@ -124,9 +124,9 @@
 							<button type="submit" class="btn btn-primary">Num.
 								Filhos X Valor Gasto</button>
 						</form></a></li>
-				<li><a><form role="form" action="Servlet_index">
+				<li><a><form role="form" action="ChartSalEC">
 							<button type="submit" class="btn btn-primary">
-								Escolaridade X Salário</button>
+								Estado Civil X Salário</button>
 						</form></a></li>
 				<li><a><form role="form" action="Servlet_index">
 							<button type="submit" class="btn btn-primary">

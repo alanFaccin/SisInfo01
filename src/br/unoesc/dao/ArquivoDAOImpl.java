@@ -179,7 +179,7 @@ public class ArquivoDAOImpl implements ArquivoDAO {
 			// as Salario FROM Arquivo file group by escolaridade");
 			// resultado = consulta.list();
 			Iterator obj = sessao
-					.createQuery("SELECT escolaridade, AVG(Salario) as Salario FROM Arquivo file group by escolaridade")
+					.createQuery("SELECT escolaridade, Round(AVG(Salario),2) as Salario FROM Arquivo file group by escolaridade")
 					.list().iterator();
 
 			while (obj.hasNext()) {
@@ -222,7 +222,7 @@ public class ArquivoDAOImpl implements ArquivoDAO {
 			// as Salario FROM Arquivo file group by escolaridade");
 			// resultado = consulta.list();
 			Iterator obj = sessao
-					.createQuery("SELECT nFilhos, AVG(file.Valor) as vg FROM Arquivo file group by nFilhos")
+					.createQuery("SELECT nFilhos, Round(AVG(file.Valor),2) as vg FROM Arquivo file group by nFilhos")
 					.list().iterator();
 
 			while (obj.hasNext()) {
@@ -262,6 +262,46 @@ public class ArquivoDAOImpl implements ArquivoDAO {
 		}
 		
 		return "Mineraçao Completa";
+	}
+
+	@Override
+	public List<GenericObject> getSalariosEstadoCivil() {
+		Session sessao = null;
+		Transaction transacao = null;
+		Query consulta = null;
+		List<GenericObject> resultado = new ArrayList<GenericObject>();
+
+		try {
+			sessao = Hibernate4Util.getSessionFactory().openSession();
+			transacao = sessao.beginTransaction();
+			Iterator obj = sessao
+					.createQuery("SELECT est_civil, Round(AVG(Salario),2) as Salario FROM Arquivo file group by est_civil")
+					.list().iterator();
+
+			while (obj.hasNext()) {
+				GenericObject go = new GenericObject();
+				Object[] tuple = (Object[]) obj.next();
+				System.out.println(tuple[0]);
+				System.out.println(tuple[1]);
+				go.setKey((String) tuple[0]);
+				go.setValor(Double.toString((double) tuple[1]));
+				resultado.add(go);
+			}
+
+			transacao.commit();
+
+		} catch (HibernateException e) {
+			System.out.println("Não foi possivel selecionar as linhas do arquivo -> Erro: " + e);
+			throw new HibernateException(e);
+		} finally {
+			try {
+				sessao.close();
+			} catch (Throwable e) {
+				System.out.println(
+						"Erro ao fechar operação de listar as linhas do arquivo -> Mensagem: " + e.getMessage());
+			}
+		}
+		return resultado;
 	}
 
 }
