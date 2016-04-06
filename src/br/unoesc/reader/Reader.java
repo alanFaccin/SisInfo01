@@ -28,7 +28,7 @@ public class Reader {
 		try {
 			try {
 				br = new BufferedReader(new InputStreamReader(
-						new FileInputStream("/Users/AlanJhones/Documents/workspace_alan/SI_work/Dados.txt"), "UTF-8"));
+						new FileInputStream("/Users/AlanJhones/Documents/workspace_alan/SisInfo01/Dados.txt"), "ISO-8859-1"));
 			} catch (FileNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -52,7 +52,7 @@ public class Reader {
 				// lê a proxima linha
 				String linha = br.readLine();
 				// int tam = linha.length();
-				if ((linha.length() > 8)) {
+				if ((linha.length() > 8 && linha.length() < 95)) {
 
 					// now create object according to the string
 					StringTokenizer st = new StringTokenizer(linha, "\t");
